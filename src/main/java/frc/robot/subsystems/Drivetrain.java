@@ -5,6 +5,7 @@ import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
+import frc.robot.commands.DriverControl;
 
 public class Drivetrain extends Subsystem {
 
@@ -16,11 +17,11 @@ public class Drivetrain extends Subsystem {
 		return drivetrain;
 	}
 
-	private Spark l_Master = new Spark(4);
-	private Spark r_Master = new Spark(1);
+	private Spark l_Master = new Spark(3);
+	private Spark r_Master = new Spark(2);
 
-	private Spark l_Slave = new Spark(2);
-	private Spark r_Slave = new Spark(3);
+	private Spark l_Slave = new Spark(5);
+	private Spark r_Slave = new Spark(0);
 
 	private SpeedControllerGroup m_Left  = new SpeedControllerGroup(l_Master, l_Slave);
 	private SpeedControllerGroup m_Right = new SpeedControllerGroup(r_Master, r_Slave);
@@ -43,6 +44,6 @@ public class Drivetrain extends Subsystem {
 
 	@Override
 	protected void initDefaultCommand() {
-
+		setDefaultCommand(new DriverControl());
 	}
 }
