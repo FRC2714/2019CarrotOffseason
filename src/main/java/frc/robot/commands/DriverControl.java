@@ -11,12 +11,19 @@ public class DriverControl extends Command {
 	private Joystick driverStick = new Joystick(0);
 
 	public DriverControl(){
+		requires(Drivetrain.getInstance());
+	}
 
+	@Override
+	protected void initialize() {
 	}
 
 	@Override
 	protected void execute() {
-		drivetrain.setDrive(driverStick.getY(GenericHID.Hand.kLeft),driverStick.getX(GenericHID.Hand.kRight));
+//		drivetrain.elevator.set(0.3);
+//		drivetrain.setDrive(driverStick.getY(GenericHID.Hand.kLeft), -driverStick.getRawAxis(4));
+		drivetrain.setElevatorPower(driverStick.getY(GenericHID.Hand.kLeft));
+//		drivetrain.setElevatorPower(driverStick.getRawAxis(3));
 	}
 
 	@Override

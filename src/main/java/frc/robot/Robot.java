@@ -24,6 +24,7 @@ import frc.robot.subsystems.ExampleSubsystem;
  * project.
  */
 public class Robot extends TimedRobot {
+
   public static ExampleSubsystem m_subsystem = new ExampleSubsystem();
   public static OI m_oi;
 
@@ -31,7 +32,6 @@ public class Robot extends TimedRobot {
   SendableChooser<Command> m_chooser = new SendableChooser<>();
 
   Drivetrain drivetrain = Drivetrain.getInstance();
-
   /**
    * This function is run when the robot is first started up and should be
    * used for any initialization code.
